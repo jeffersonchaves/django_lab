@@ -5,9 +5,17 @@
     <title>Xubi</title>
 </head>
 <body>
-Xubiiiiiiiii!
+<h1>Xubiiiiiiiii!</h1>
 
 <img src="https://media.tenor.co/images/2cb2cf93c54ae166dee028e15fc9eb5b/tenor.gif" alt="">
+
+{% for post in posts %}
+    <div>
+        <p>publicado em: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 
 </body>
 </html>
