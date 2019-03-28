@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Xubi</title>
-</head>
-<body>
-<h1>Xubiiiiiiiii!</h1>
+{% extends 'blog/base.html' %}
 
-<img src="https://media.tenor.co/images/2cb2cf93c54ae166dee028e15fc9eb5b/tenor.gif" alt="">
+{% block content %}
 
-{% for post in posts %}
-    <div>
-        <p>publicado em: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
+    <img src="https://media.tenor.co/images/2cb2cf93c54ae166dee028e15fc9eb5b/tenor.gif" alt="">
 
-</body>
-</html>
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
